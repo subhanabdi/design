@@ -146,29 +146,36 @@ export default function ServicesPage() {
       </section>
 
       {/* Industries We Serve */}
-<section className="py-20 px-6 lg:px-12">
+   <section className="py-20  px-6 lg:px-12">
   <div className="max-w-7xl mx-auto">
-    <h2 className="text-2xl lg:text-3xl font-bold mb-16">
+
+    <h2 className="text-2xl lg:text-3xl font-bold mb-12">
       Industries We Serve
     </h2>
 
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-16 gap-y-14">
-      {industries.map((industry) => (
-        <div key={industry} className="flex items-start gap-4">
-          
-          {/* Red Vertical Line */}
-          <div className="w-[2px] h-8 bg-red-600 mt-1" />
+    {industries.map((row, rowIndex) => (
+      <div
+        key={rowIndex}
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8"
+      >
+        {row.map((industry) => (
+          <div
+            key={industry}
+            className="flex items-start gap-4"
+          >
+            {/* RED LINE */}
+            <div className="w-[3px] h-6 bg-red-500 mt-1" />
 
-          <p className="text-lg lg:text-xl font-medium leading-relaxed text-gray-800">
-            {industry}
-          </p>
+            <p className="text-xl lg:text-xl leading-relaxed">
+              {industry}
+            </p>
+          </div>
+        ))}
+      </div>
+    ))}
 
-        </div>
-      ))}
-    </div>
   </div>
 </section>
-
 
       {/* Engagement Models */}
       <section className="py-20 lg:py-28 px-6 lg:px-12">
