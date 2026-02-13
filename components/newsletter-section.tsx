@@ -7,7 +7,7 @@ export default function NewsletterSection() {
   const [email, setEmail] = useState("")
 
   return (
-    <section id="newsletter" className="py-20 lg:py-28 px-6 lg:px-12 bg-secondary">
+    <section id="newsletter" className="py-20 lg:py-28 px-6 lg:px-12 ba">
       <div className="max-w-xl mx-auto text-center">
         <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
           Join our newsletter
