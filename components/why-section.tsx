@@ -37,7 +37,7 @@ const textCards = [
   },
 ]
 
-/* ---------- Reusable Hover Card ---------- */
+/* ---------- Hover Text Card ---------- */
 type HoverCardProps = {
   title: string
   desc: string
@@ -48,11 +48,10 @@ function HoverCard({ title, desc }: HoverCardProps) {
 
   return (
     <div
-      className="border border-neutral-400 p-8 min-h-[200px] flex flex-col justify-end transition-all duration-300"
+      className="border border-neutral-400 rounded-2xl p-8 min-h-[200px] flex flex-col justify-end transition-all duration-300"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Description */}
       <p
         className={`text-sm text-neutral-600 mb-4 transition-all duration-300 ${
           hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
@@ -61,7 +60,6 @@ function HoverCard({ title, desc }: HoverCardProps) {
         {desc}
       </p>
 
-      {/* Title */}
       <p className="text-sm tracking-wide leading-relaxed font-medium">
         {title}
       </p>
@@ -69,54 +67,45 @@ function HoverCard({ title, desc }: HoverCardProps) {
   )
 }
 
-/* ---------- Main Section ---------- */
+/* ---------- Section ---------- */
 export default function WhyWeSection() {
   return (
     <section className="bg-[#efe9e2] px-6 lg:px-12 py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 gap-12">
 
-        {/* Title */}
-        <h2 className="text-2xl lg:text-3xl font-medium mb-14">
-          Why We?
-        </h2>
+        {/* LEFT TITLE */}
+        <div className="lg:col-span-1">
+          <h2 className="text-2xl lg:text-3xl font-medium">
+            Why We?
+          </h2>
+        </div>
 
-        {/* Layout */}
-        <div className="grid lg:grid-cols-3 gap-10">
+        {/* RIGHT CONTENT GRID */}
+        <div className="lg:col-span-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-14">
 
-          {/* LEFT SIDE IMAGES */}
-          <div className="space-y-10">
+          {/* Text Cards */}
+          {textCards.map((card, index) => (
+            <HoverCard key={index} title={card.title} desc={card.desc} />
+          ))}
 
-            {/* Tall Image */}
-            <div className="relative h-[260px] lg:h-[340px] overflow-hidden">
-              <Image
-                src="/images/about-team.jpg"
-                alt="Team collaboration"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            {/* Wide Image */}
-            <div className="relative h-[200px] overflow-hidden">
-              <Image
-                src="/images/location-office.jpg"
-                alt="Strategy planning"
-                fill
-                className="object-cover"
-              />
-            </div>
-
+          {/* Image Card 1 — NO RADIUS */}
+          <div className="relative h-[220px] overflow-hidden">
+            <Image
+              src="/images/about-team.jpg"
+              alt="Team collaboration"
+              fill
+              className="object-cover"
+            />
           </div>
 
-          {/* RIGHT SIDE TEXT GRID */}
-          <div className="lg:col-span-2 grid md:grid-cols-2 gap-8">
-            {textCards.map((card, index) => (
-              <HoverCard
-                key={index}
-                title={card.title}
-                desc={card.desc}
-              />
-            ))}
+          {/* Image Card 2 — NO RADIUS */}
+          <div className="relative h-[220px] overflow-hidden">
+            <Image
+              src="/images/location-office.jpg"
+              alt="Strategy planning"
+              fill
+              className="object-cover"
+            />
           </div>
 
         </div>
