@@ -5,11 +5,11 @@ import Image from "next/image"
 const clients = [
   { name: "Travel", logo: "/images/Logo-1.png" },
   { name: "Octopus", logo: "/images/Logo.png" },
-  { name: "Life Fitness", logo: "/images/Logo2.png" },
-  { name: "Stoli", logo: "/images/Logo3.png" },
-  { name: "TRUE", logo: "/images/Logo4.png" },
-  { name: "CYBEX", logo: "/images/Logo5.png" },
-  { name: "Nautilus", logo: "/images/Logo6.png" },
+  { name: "Life Fitness", logo: "/images/logo2.png" },
+  { name: "Stoli", logo: "/images/logo3.png" },
+  { name: "TRUE", logo: "/images/logo4.png" },
+  { name: "CYBEX", logo: "/images/logo5.png" },
+  { name: "Nautilus", logo: "/images/logo6.png" },
   { name: "PRECOR", logo: "/images/Logo1.png" },
 ]
 
