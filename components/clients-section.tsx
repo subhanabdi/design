@@ -36,7 +36,7 @@ export default function ClientsSection() {
                 key={client.name}
                 className="flex items-center justify-center h-20"
               >
-                <div className="relative w-36 h-14 transition duration-300 opacity-70 hover:opacity-100 hover:scale-105">
+                <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300 relative w-36 h-14 transition duration-300 opacity-70 hover:opacity-100 hover:scale-105">
                   <Image
                     src={client.logo}
                     alt={client.name}
