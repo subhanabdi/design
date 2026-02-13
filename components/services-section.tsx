@@ -2,79 +2,69 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 const services = [
-  {
-    number: "01",
-    title: "Market Entry & Expansion in EMENA",
-    description: "",
-  },
-  {
-    number: "02",
-    title: "Investor Relations & Financial Strategy",
-    description: "",
-  },
-  {
-    number: "03",
-    title: "Emerging Technologies Integration",
-    description: "",
-  },
+  { number: "01", title: "Market Entry & Expansion in EMENA" },
+  { number: "02", title: "Investor Relations & Financial Strategy" },
+  { number: "03", title: "Emerging Technologies Integration" },
   {
     number: "04",
-    title: "Mergers and Acquisitions: Strategic guidance on M&A, including target identification, due diligence, valuation, and integration planning.",
-    description: "",
+    title:
+      "Mergers and Acquisitions: Strategic guidance on M&A, including target identification, due diligence, valuation, and integration planning",
   },
-  {
-    number: "05",
-    title: "Corporate Communications, Brand Management",
-    description: "",
-  },
+  { number: "05", title: "Corporate Communications, Brand Management" },
   {
     number: "06",
-    title: "Corporate growth strategy to expand market share and capitalize on emerging opportunities",
-    description: "",
+    title:
+      "Corporate growth strategy to expand market share and capitalize on emerging opportunities",
   },
 ]
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-20 lg:py-28 px-6 lg:px-12 bg-secondary">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16">
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-2">
-              A comprehensive
-            </h2>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-              set of{" "}
-              <span className="underline decoration-accent underline-offset-4">
-                services
-              </span>
-            </h2>
-          </div>
+    <section className="bg-[#f5efe9] py-24 px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 gap-12">
+
+        {/* LEFT INTRO */}
+        <div className="lg:col-span-1">
+          <h2 className="text-3xl lg:text-4xl font-semibold leading-tight">
+            A comprehensive
+          </h2>
+          <h2 className="text-3xl lg:text-4xl font-semibold leading-tight">
+            set of <span className="text-red-500">services</span>
+          </h2>
+
           <Link
             href="#"
-            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent transition-colors mt-4 lg:mt-0"
+            className="inline-flex items-center gap-2 mt-6 text-sm font-medium hover:text-red-500 transition-colors"
           >
             View all
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* SERVICES GRID */}
+        <div className="lg:col-span-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-14">
           {services.map((service) => (
-            <div key={service.number} className="group">
-              <span className="text-sm font-medium text-muted-foreground mb-3 block">
-                {service.number}
-              </span>
-              <h3 className="text-base font-semibold text-foreground mb-4 leading-relaxed">
-                {service.title}
-              </h3>
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-accent transition-colors"
-              >
-                Know more
-                <ArrowRight className="w-3 h-3" />
-              </Link>
+            <div key={service.number} className="flex gap-5 group">
+
+              {/* RED LINE */}
+              <div className="w-[2px] bg-red-500 mt-1" />
+
+              {/* CONTENT */}
+              <div>
+                <p className="text-sm mb-2">{service.number}</p>
+
+                <h3 className="text-base font-semibold leading-relaxed mb-4">
+                  {service.title}
+                </h3>
+
+                <Link
+                  href="#"
+                  className="inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-red-500 transition-colors"
+                >
+                  Know more
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           ))}
         </div>
