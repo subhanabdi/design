@@ -166,7 +166,7 @@ export default function ServicesPage() {
             {/* RED LINE */}
             <div className="w-[3px] h-6 bg-red-500 mt-1" />
 
-            <p className="text-sm font-medium leading-relaxed">
+            <p className="text-2xl lg:text-3xl leading-relaxed">
               {industry}
             </p>
           </div>
