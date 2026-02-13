@@ -15,26 +15,30 @@ export const metadata: Metadata = {
 
 const approachSteps = [
   {
-    icon: "understand",
     title: "Understand",
-    description: "Deep market and organizational analysis that reveals true potential.",
+    description:
+      "Deep market and organizational analysis that reveals true potential.",
+    image: "/images/understand.png",
   },
   {
-    icon: "strategize",
     title: "Strategize",
-    description: "Designing data-driven, bespoke solutions that align with your goals.",
+    description:
+      "Designing data-driven, bespoke solutions that align with your goals.",
+    image: "/images/strategize.png",
   },
   {
-    icon: "collaborate",
     title: "Collaborate",
-    description: "Partnering closely with your team to ensure clarity, alignment, and adaptability.",
+    description:
+      "Partnering closely with your team to ensure clarity, alignment, and adaptability.",
+    image: "/images/collaborate.png",
   },
   {
-    icon: "deliver",
     title: "Deliver",
-    description: "Driving measurable results that create sustainable growth and real-world success.",
+    description:
+      "Driving measurable results that create sustainable growth and real-world success.",
+    image: "/images/deliver.png",
   },
-]
+];
 
 function ApproachIcon({ type }: { type: string }) {
   if (type === "understand") {
