@@ -1,18 +1,69 @@
 "use client"
 
 import Image from "next/image"
-import React from "react"
+import React, { useState } from "react"
 
-/* ---------- Reusable Text Card ---------- */
-type TextCardProps = {
-  children: React.ReactNode
+/* ---------- Card Data ---------- */
+const textCards = [
+  {
+    title: "GLOBAL PERSPECTIVE, LOCAL INSIGHTS",
+    desc:
+      "Our dual presence in the US and MENA markets allows us to merge global best practices with regional intelligence.",
+  },
+  {
+    title: "TAILORED STRATEGIES, REAL IMPACT",
+    desc:
+      "We design customized strategies that align with your business realities and deliver measurable results.",
+  },
+  {
+    title: "TRUE PARTNERSHIP APPROACH",
+    desc:
+      "We work alongside leadership teams, ensuring alignment, transparency, and long-term value creation.",
+  },
+  {
+    title: "PROVEN TRACK RECORD",
+    desc:
+      "A consistent history of delivering successful outcomes across sectors and complex engagements.",
+  },
+  {
+    title: "TECHNOLOGY DRIVEN THINKING",
+    desc:
+      "We integrate emerging technologies into strategy to future-proof business performance.",
+  },
+  {
+    title: "END TO END EXPERTISE",
+    desc:
+      "From strategy to execution, we support every phase of your growth journey.",
+  },
+]
+
+/* ---------- Reusable Hover Card ---------- */
+type HoverCardProps = {
+  title: string
+  desc: string
 }
 
-function TextCard({ children }: TextCardProps) {
+function HoverCard({ title, desc }: HoverCardProps) {
+  const [hovered, setHovered] = useState(false)
+
   return (
-    <div className="border border-neutral-400 rounded-2xl p-8 flex items-end min-h-[180px]">
-      <p className="text-sm tracking-wide leading-relaxed">
-        {children}
+    <div
+      className="border border-neutral-400 p-8 min-h-[200px] flex flex-col justify-end transition-all duration-300"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Description */}
+      <p
+        className={`text-sm text-neutral-600 mb-4 transition-all duration-300 ${
+          hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+        }`}
+      >
+        {desc}
+      </p>
+
+      {/* Title */}
+      <p className="text-sm tracking-wide leading-relaxed font-medium">
+        {title}
       </p>
     </div>
   )
@@ -29,55 +80,44 @@ export default function WhyWeSection() {
           Why We?
         </h2>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Layout */}
+        <div className="grid lg:grid-cols-3 gap-10">
 
-          {/* Top Row */}
-          <TextCard>
-            GLOBAL PERSPECTIVE,<br />LOCAL INSIGHTS
-          </TextCard>
+          {/* LEFT SIDE IMAGES */}
+          <div className="space-y-10">
 
-          <TextCard>
-            TAILORED STRATEGIES,<br />REAL IMPACT
-          </TextCard>
+            {/* Tall Image */}
+            <div className="relative h-[260px] lg:h-[340px] overflow-hidden">
+              <Image
+                src="/images/about-team.jpg"
+                alt="Team collaboration"
+                fill
+                className="object-cover"
+              />
+            </div>
 
-          <TextCard>
-            TRUE PARTNERSHIP<br />APPROACH
-          </TextCard>
+            {/* Wide Image */}
+            <div className="relative h-[200px] overflow-hidden">
+              <Image
+                src="/images/location-office.jpg"
+                alt="Strategy planning"
+                fill
+                className="object-cover"
+              />
+            </div>
 
-          {/* Tall Image */}
-          <div className="relative h-[260px] md:h-[280px] lg:h-full overflow-hidden rounded-2xl">
-            <Image
-              src="/images/about-team.jpg"
-              alt="Team collaboration"
-              fill
-              className="object-cover"
-            />
           </div>
 
-          {/* Bottom Row */}
-
-          {/* Wide Image */}
-          <div className="relative h-[200px] overflow-hidden rounded-2xl md:col-span-2 lg:col-span-1">
-            <Image
-              src="/images/location-office.jpg"
-              alt="Strategy planning"
-              fill
-              className="object-cover"
-            />
+          {/* RIGHT SIDE TEXT GRID */}
+          <div className="lg:col-span-2 grid md:grid-cols-2 gap-8">
+            {textCards.map((card, index) => (
+              <HoverCard
+                key={index}
+                title={card.title}
+                desc={card.desc}
+              />
+            ))}
           </div>
-
-          <TextCard>
-            PROVEN TRACK<br />RECORD
-          </TextCard>
-
-          <TextCard>
-            TECHNOLOGY DRIVEN<br />THINKING
-          </TextCard>
-
-          <TextCard>
-            END TO END EXPERTISE
-          </TextCard>
 
         </div>
       </div>
