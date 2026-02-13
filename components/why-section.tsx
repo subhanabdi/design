@@ -48,7 +48,9 @@ function HoverCard({ title, desc }: HoverCardProps) {
 
   return (
     <div
-      className="border border-neutral-400 rounded-2xl p-8 min-h-[200px] flex flex-col justify-end transition-all duration-300"
+      className={`border border-neutral-400 rounded-2xl p-8 min-h-[200px] flex flex-col justify-end transition-all duration-300 ${
+        hovered ? "bg-[#A8A6A6]" : "bg-transparent"
+      }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -60,7 +62,11 @@ function HoverCard({ title, desc }: HoverCardProps) {
         {desc}
       </p>
 
-      <p className="text-sm tracking-wide leading-relaxed font-medium">
+      <p
+        className={`text-sm tracking-wide leading-relaxed font-medium transition-colors duration-300 ${
+          hovered ? "text-white" : "text-black"
+        }`}
+      >
         {title}
       </p>
     </div>
