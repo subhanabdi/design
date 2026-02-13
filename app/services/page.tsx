@@ -6,11 +6,16 @@ import PageHero from "@/components/page-hero"
 import ConversationCta from "@/components/conversation-cta"
 import NewsletterSection from "@/components/newsletter-section"
 import Footer from "@/components/footer"
+import { Icon } from "lucide-react"
+
+
 
 export const metadata: Metadata = {
   title: "Services | Bety.",
   description: "Corporate strategy advisory and business planning services.",
 }
+
+
 
 const serviceOfferings = [
   { title: "Market Expansion", image: "/images/service-market-expansion.jpg", slug: "market-expansion" },
@@ -33,28 +38,38 @@ const industries = [
   ["Consumer, Retail & E-Commerce", "Manufacturing & Industrial Systems", "Real Estate, Construction & Infrastructure", "Education, EdTech & Workforce Development", "Transportation, Aviation & Mobility"],
 ]
 
+
+
+
 const engagementModels = [
   {
-    icon: "project",
+    logo: "/images/desi.png",
     title: "Project-Based Delivery",
-    description: "Focused, time-bound engagements with clear deliverables for initiatives like market entry, due diligence, or GTM strategy.",
+    description:
+      "Focused, time-bound engagements with clear deliverables for initiatives like market entry, due diligence, or GTM strategy.",
   },
   {
-    icon: "retainer",
+    logo: "/images/Vector-1.png",
     title: "Retainer Partnership",
-    description: "Ongoing strategic guidance with continuous access to senior consultants for performance tracking and market alignment.",
+    description:
+      "Ongoing strategic guidance with continuous access to senior consultants for performance tracking and market alignment.",
   },
   {
-    icon: "advisory",
+    logo: "/images/Vector-2.png",
     title: "Advisory on Demand",
-    description: "Expert sessions available whenever critical decisions arise\u2014fast, flexible, insight-driven.",
+    description:
+      "Expert sessions available whenever critical decisions arise—fast, flexible, insight-driven.",
   },
   {
-    icon: "turnkey",
+    logo: "/images/Vector-3.png",
     title: "Turnkey Strategy & Execution",
-    description: "End-to-end ownership from strategy design to execution for expansions, transformations, and new ventures.",
+    description:
+      "End-to-end ownership from strategy design to execution for expansions, transformations, and new ventures.",
   },
-]
+];
+
+
+
 
 function EngagementIcon({ type }: { type: string }) {
   const iconClass = "w-10 h-10 text-accent"
@@ -178,23 +193,25 @@ export default function ServicesPage() {
 </section>
 
       {/* Engagement Models */}
-     <section className="py-20 lg:py-28 px-6 lg:px-12 bg-gray-100">
+ <section className="py-20 lg:py-28 px-6 lg:px-12 bg-gray-100">
   <div className="max-w-7xl mx-auto">
     <h2 className="text-2xl lg:text-3xl font-bold mb-16">
       Our Engagement Models
     </h2>
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-      {engagementModels.map((model) => (
+      {engagementModels.map((model, index) => (
         <div
-          key={model.title}
-          className="border border-red-400 p-8 bg-white flex flex-col items-start hover:shadow-lg transition duration-300"
+          key={index}
+          className="border border-gray-200 p-8 bg-white flex flex-col items-start 
+                     hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
         >
-          
-          {/* Icon */}
-          <div className="w-12 h-12 mb-6 text-black">
-            <EngagementIcon type={model.icon} />
-          </div>
+          {/* Image */}
+          <img
+            src={model.logo}
+            alt={model.title}
+            className="w-12 h-12 object-contain mb-6"
+          />
 
           {/* Red Line */}
           <div className="w-12 h-[2px] bg-red-500 mb-6" />
@@ -208,7 +225,6 @@ export default function ServicesPage() {
           <p className="text-sm text-gray-600 leading-relaxed">
             {model.description}
           </p>
-
         </div>
       ))}
     </div>
