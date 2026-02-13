@@ -30,8 +30,7 @@ const insights = [
 
 export default function InsightsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
-
-  const itemsPerPage = 3
+  const itemsPerPage = 4
   const maxIndex = insights.length - itemsPerPage
 
   const handleNext = () => {
@@ -46,9 +45,10 @@ export default function InsightsSection() {
     <section className="py-24 px-8 lg:px-16 bg-[#f4f4f4]">
       <div className="max-w-7xl mx-auto">
 
-        {/* HEADER */}
-        <div className="flex justify-between items-start mb-16">
-          <div>
+        <div className="grid lg:grid-cols-4 gap-16">
+
+          {/* LEFT COLUMN */}
+          <div className="lg:col-span-1">
             <h2 className="text-5xl font-light leading-tight mb-6">
               Our Latest <br /> Insights
             </h2>
@@ -59,74 +59,105 @@ export default function InsightsSection() {
             >
               View all »
             </Link>
-          </div>
 
-          {/* NAVIGATION */}
-          <div className="flex gap-3">
-            <button
-              onClick={handlePrev}
-              className="p-3 border border-black/30 rounded-full hover:bg-black/10 transition"
-            >
-              <ArrowLeft size={18} />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-3 border border-black/30 rounded-full hover:bg-black/10 transition"
-            >
-              <ArrowRight size={18} />
-            </button>
-          </div>
-        </div>
-
-        {/* CAROUSEL */}
-        <div className="overflow-hidden">
-          <div
-            className="flex gap-12 transition-transform duration-700 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)`,
-            }}
-          >
-            {insights.map((item, index) => (
-              <div
-                key={index}
-                className="min-w-[calc(100%/3-32px)] flex-shrink-0"
+            {/* NAV BUTTONS */}
+            <div className="flex gap-3 mt-10">
+              <button
+                onClick={handlePrev}
+                className="p-3 border border-black/30 rounded-full hover:bg-black/10 transition"
               >
-                <Link href="#" className="group block">
-
-                  {/* IMAGE */}
-                  <div className="relative aspect-[4/5] overflow-hidden mb-6">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-
-                    {/* BOOKMARK */}
-                    <button
-                      onClick={(e) => e.preventDefault()}
-                      className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:scale-110 transition"
-                    >
-                      <Bookmark size={16} />
-                    </button>
-                  </div>
-
-                  {/* CONTENT */}
-                  <p className="text-sm text-gray-500 mb-2">
-                    {item.date}
-                  </p>
-
-                  <h3 className="text-xl font-medium leading-snug group-hover:underline">
-                    {item.title}
-                  </h3>
-
-                </Link>
-              </div>
-            ))}
+                <ArrowLeft size={18} />
+              </button>
+              <button
+                onClick={handleNext}
+                className="p-3 border border-black/30 rounded-full hover:bg-black/10 transition"
+              >
+                <ArrowRight size={18} />
+              </button>
+            </div>
           </div>
-        </div>
 
+          {/* RIGHT COLUMN - CAROUSEL GRID */}
+          <div className="lg:col-span-3 overflow-hidden">
+            <div
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * 25}%)`,
+              }}
+            >
+              {insights.map((item, index) => (
+                <div
+                  key={index}
+                  className="min-w-[25%] px-4"
+                >
+                  <InsightCard item={item} reverse={index % 2 !== 0} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
+  )
+}
+
+function InsightCard({
+  item,
+  reverse,
+}: {
+  item: any
+  reverse: boolean
+}) {
+  return (
+    <Link href="#" className="group block">
+
+      {/* IMAGE FIRST */}
+      {!reverse && (
+        <div className="relative aspect-[4/5] overflow-hidden mb-6">
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+
+          <button
+            onClick={(e) => e.preventDefault()}
+            className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:scale-110 transition"
+          >
+            <Bookmark size={14} />
+          </button>
+        </div>
+      )}
+
+      <p className="text-xs text-gray-500 mb-2 tracking-wide">
+        {item.date}
+      </p>
+
+      <h3 className="text-lg font-medium leading-snug mb-6 group-hover:underline">
+        {item.title}
+      </h3>
+
+      {/* IMAGE LAST */}
+      {reverse && (
+        <div className="relative aspect-[4/5] overflow-hidden">
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+
+          <button
+            onClick={(e) => e.preventDefault()}
+            className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:scale-110 transition"
+          >
+            <Bookmark size={14} />
+          </button>
+        </div>
+      )}
+
+    </Link>
   )
 }
