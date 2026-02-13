@@ -161,7 +161,7 @@ export default function ServicesPage() {
         {row.map((industry) => (
           <div
             key={industry}
-            className="flex items-start gap-4"
+            className="flex items-start gap-4 dddss"
           >
             {/* RED LINE */}
             <div className="w-[2px] h-8 bg-red-600 mt-1" />
