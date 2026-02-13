@@ -77,3 +77,21 @@ export default function Header() {
       <div
         className={`overflow-hidden transition-all duration-300 bg-background ${
           menuOpen ? "max-h-96 border-t border-border" : "max-h-0"
+        }`}
+      >
+        <nav className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-sm text-foreground hover:text-accent transition-colors"
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
+  )
+}
