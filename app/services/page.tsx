@@ -164,7 +164,7 @@ export default function ServicesPage() {
             className="flex items-start gap-4 dddss"
           >
             {/* RED LINE */}
-            <div className="w-[2px] h-8 bg-red-600 mt-1" />
+            <div className="w-[2px] h-8 bg-red-600 mt-1 ddA" />
 
             <p className="text-lg lg:text-xl font-medium leading-relaxed text-gray-800">
               {industry}
