@@ -3,14 +3,14 @@
 import Image from "next/image"
 
 const clients = [
-  { name: "Travel", logo: "/images/clients/travel.png" },
-  { name: "Octopus", logo: "/images/clients/octopus.png" },
-  { name: "Life Fitness", logo: "/images/clients/lifefitness.png" },
-  { name: "Stoli", logo: "/images/clients/stoli.png" },
-  { name: "TRUE", logo: "/images/clients/true.png" },
-  { name: "CYBEX", logo: "/images/clients/cybex.png" },
-  { name: "Nautilus", logo: "/images/clients/nautilus.png" },
-  { name: "PRECOR", logo: "/images/clients/precor.png" },
+  { name: "Travel", logo: "/images/travel.png" },
+  { name: "Octopus", logo: "/images/octopus.png" },
+  { name: "Life Fitness", logo: "/images/lifefitness.png" },
+  { name: "Stoli", logo: "/images/stoli.png" },
+  { name: "TRUE", logo: "/images/true.png" },
+  { name: "CYBEX", logo: "/images/cybex.png" },
+  { name: "Nautilus", logo: "/images/nautilus.png" },
+  { name: "PRECOR", logo: "/images/precor.png" },
 ]
 
 export default function ClientsSection() {
