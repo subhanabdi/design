@@ -116,7 +116,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Offerings Grid */}
-      <section className="py-20 lg:py-28 px-6 lg:px-12">
+      <section className="py-20  px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-12">Our Services Offerings</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -146,7 +146,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Industries We Serve */}
-   <section className="py-20 lg:py-28 px-6 lg:px-12">
+   <section className="py-20  px-6 lg:px-12">
   <div className="max-w-7xl mx-auto">
 
     <h2 className="text-2xl lg:text-3xl font-bold mb-12">
