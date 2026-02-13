@@ -155,30 +155,61 @@ export default function AboutPage() {
       </section>
 
       {/* Our Approach */}
-      <section className="py-20 lg:py-28 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+<section className="py-20 lg:py-28 px-6 lg:px-12 bg-[#f3f3f3]">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+      
+      {/* Left Content */}
+      <div>
+        <h2 className="text-2xl lg:text-3xl font-bold text-black">
+          Our Approach
+        </h2>
+        <p className="text-sm text-gray-500 mt-2">
+          A Process That Delivers.
+        </p>
+
+        <p className="text-sm text-gray-600 leading-relaxed mt-6">
+          At Bety Global, we believe effective strategy begins with
+          understanding, grows through collaboration, and succeeds
+          through measurable execution.
+        </p>
+      </div>
+
+      {/* Right Grid */}
+      <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-14">
+        
+        {approachSteps.map((step) => (
+          <div key={step.title} className="flex flex-col gap-4">
+            
+            {/* Image */}
             <div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-foreground">Our Approach</h2>
-              <p className="text-sm text-muted-foreground mt-2">A Process That Delivers</p>
-              <p className="text-sm text-muted-foreground leading-relaxed mt-6">
-                At Bety Global, we believe effective strategy begins with
-                understanding, grows through collaboration, and succeeds
-                through measurable execution.
-              </p>
+              <img
+                src={step.image}
+                alt={step.title}
+                className="w-10 h-10 object-contain"
+              />
+              
+              {/* Red Line */}
+              <div className="h-[2px] w-20 bg-red-600 mt-4"></div>
             </div>
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
-              {approachSteps.map((step) => (
-                <div key={step.title} className="flex flex-col gap-3">
-                  <ApproachIcon type={step.icon} />
-                  <h3 className="text-base font-bold text-foreground">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                </div>
-              ))}
-            </div>
+
+            {/* Title */}
+            <h3 className="text-base font-semibold text-black">
+              {step.title}
+            </h3>
+
+            {/* Description */}
+            <p className="text-sm text-gray-600 leading-relaxed">
+              {step.description}
+            </p>
           </div>
-        </div>
-      </section>
+        ))}
+
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Team Banner */}
       <section className="relative h-[50vh] min-h-[320px] flex items-end">
