@@ -150,12 +150,14 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-12">Industries We Serve</h2>
           {industries.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-t border-border">
+            <div key={rowIndex} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 ">
               {row.map((industry) => (
+                 
                 <div
                   key={industry}
-                  className="border-b border-r border-border p-6 flex items-start"
+                  className="p-6 flex items-start"
                 >
+                  <div className="w-[2px] bg-red-500 mt-1" />
                   <p className="text-sm font-medium text-foreground leading-relaxed">{industry}</p>
                 </div>
               ))}
