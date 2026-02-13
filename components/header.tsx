@@ -18,66 +18,80 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
-      <div className="flex items-center justify-between px-6 py-4 lg:px-12">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
+        
+        {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
             src="/images/bety-logo.png"
             alt="Bety."
             width={80}
             height={32}
-            className="h-8"
-            style={{ width: "auto" }}
+            className="h-8 w-auto"
+            priority
           />
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm text-foreground hover:text-accent transition-colors"
+              className="text-sm text-foreground transition-colors hover:text-accent"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
+        {/* Right Controls */}
         <div className="flex items-center gap-4">
           <button
             type="button"
-            className="p-2 text-foreground hover:text-accent transition-colors"
+            className="p-2 text-foreground transition-colors hover:text-accent"
             aria-label="Search"
           >
-            <Search className="w-5 h-5" />
+            <Search className="h-5 w-5" />
           </button>
+
+          {/* Hamburger */}
           <button
             type="button"
-            className="lg:hidden p-2 text-foreground hover:text-accent transition-colors"
+            className="lg:hidden p-2 text-foreground transition-colors hover:text-accent"
             aria-label="Toggle menu"
-            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((prev) => !prev)}
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
 
-      {mobileOpen && (
-        <div className="lg:hidden bg-background border-t border-border">
-          <nav className="flex flex-col px-6 py-4 gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-sm text-foreground hover:text-accent transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 bg-background ${
+          mobileOpen ? "max-h-96 border-t border-border" : "max-h-0"
+        }`}
+      >
+        <nav className="flex flex-col gap-4 px-6 py-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-sm text-foreground transition-colors hover:text-accent"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
     </header>
   )
 }
