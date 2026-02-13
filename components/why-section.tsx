@@ -71,35 +71,20 @@ function HoverCard({ title, desc }: HoverCardProps) {
 export default function WhyWeSection() {
   return (
     <section className="bg-[#efe9e2] px-6 lg:px-12 py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 gap-x-4 gap-y-14">
 
         {/* LEFT TITLE */}
         <div className="lg:col-span-1">
-          <h2 className="text-2xl lg:text-3xl font-medium">
-            Why We?
-          </h2>
+          <h2 className="text-2xl lg:text-3xl font-medium">Why We?</h2>
         </div>
 
         {/* RIGHT CONTENT GRID */}
-        <div className="lg:col-span-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-14">
-
-          {/* Text Cards */}
-          {textCards.map((card, index) => (
-            <HoverCard key={index} title={card.title} desc={card.desc} />
-          ))}
-
-          {/* Image Card 1 — NO RADIUS */}
-          <div className="relative h-[220px] overflow-hidden">
-            <Image
-              src="/images/about-team.jpg"
-              alt="Team collaboration"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* Image Card 2 — NO RADIUS */}
-          <div className="relative h-[220px] overflow-hidden">
+        <div
+          className="lg:col-span-3 grid grid-cols-4 gap-x-4 gap-y-14"
+          style={{ gridTemplateColumns: "repeat(4, 2fr)" }}
+        >
+          {/* Image Card 1 — Start of first row */}
+          <div className="relative h-[220px] overflow-hidden col-start-1">
             <Image
               src="/images/location-office.jpg"
               alt="Strategy planning"
@@ -108,6 +93,20 @@ export default function WhyWeSection() {
             />
           </div>
 
+          {/* Text Cards */}
+          {textCards.map((card, index) => (
+            <HoverCard key={index} title={card.title} desc={card.desc} />
+          ))}
+
+          {/* Image Card 2 — End of first row */}
+          <div className="relative h-[220px] overflow-hidden col-end-5">
+            <Image
+              src="/images/about-team.jpg"
+              alt="Team collaboration"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>
