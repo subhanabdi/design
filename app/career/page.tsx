@@ -102,7 +102,7 @@ export default function CareerPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyWorkItems.map((item) => (
               <div key={item.title} className="flex flex-col gap-4">
-                <div className="w-full h-1 bg-secondary" />
+                <div className="w-full h-1 bc" />
                 <h3 className="text-base font-bold text-foreground">{item.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
