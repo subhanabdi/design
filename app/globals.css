@@ -49,3 +49,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.bg-secondary {
+  background-color: #ED2024  !important;
+}
