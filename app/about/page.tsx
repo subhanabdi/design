@@ -80,7 +80,7 @@ export default function AboutPage() {
       <PageHero title="Who we are" image="/images/about-hero.jpg" />
 
       {/* Mission Statement */}
-      <section className="py-20 lg:py-28 px-6 lg:px-12">
+      <section className="py-20 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-6 leading-relaxed text-balance">
             We craft strategies that turn vision into measurable growth and lasting impact.
