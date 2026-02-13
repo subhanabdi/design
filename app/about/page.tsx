@@ -216,30 +216,44 @@ export default function AboutPage() {
 
 
       {/* Team Banner */}
-      <section className="relative h-[50vh] min-h-[320px] flex items-end">
+    <section className="bg-red-600 py-16 lg:py-24 px-6 lg:px-12">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+    
+    {/* Left Content */}
+    <div className="text-white max-w-xl">
+      <h2 className="text-3xl lg:text-4xl font-semibold leading-snug mb-6">
+        Behind every strategy is a team that cares.
+      </h2>
+
+      <p className="text-sm lg:text-base text-white/90 mb-8 leading-relaxed">
+        We&apos;re thinkers, creators, and collaborators —
+        united by a shared purpose to make every idea count.
+      </p>
+
+      <Link
+        href="/about"
+        className="inline-flex items-center gap-2 text-sm font-medium text-white hover:gap-3 transition-all duration-300"
+      >
+        Our Team
+        <ArrowRight className="w-4 h-4" />
+      </Link>
+    </div>
+
+    {/* Right Image */}
+    <div className="flex justify-center lg:justify-end">
+      <div className="relative w-full max-w-md h-[350px]">
         <Image
           src="/images/about-team-banner.jpg"
           alt="Bety team"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-accent/80" />
-        <div className="relative z-10 px-6 lg:px-12 pb-12 max-w-xl">
-          <h2 className="text-2xl lg:text-3xl font-bold text-accent-foreground mb-4 leading-relaxed">
-            Behind every strategy is a team that cares.
-          </h2>
-          <p className="text-sm text-accent-foreground/80 mb-6 leading-relaxed">
-            We{"'"}re thinkers, creators, and collaborators —
-            united by a shared purpose to make every idea count.
-          </p>
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 text-sm font-medium text-accent-foreground hover:underline"
-          >
-            Our Team <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
       <InsightsSection />
       <NewsletterSection />
