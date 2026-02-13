@@ -131,34 +131,56 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Offerings Grid */}
-      <section className="py-20  px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-12">Our Services Offerings</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {serviceOfferings.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="group relative aspect-square overflow-hidden"
-              >
-                <Image
-                  src={service.image || "/placeholder.svg"}
-                  alt={service.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-foreground/40 group-hover:bg-foreground/50 transition-colors" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="text-xs text-background/70">
-                    {String(serviceOfferings.indexOf(service) + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="text-sm font-semibold text-background">{service.title}</h3>
-                </div>
-              </Link>
-            ))}
+<section className="py-20 px-6 lg:px-12">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-2xl lg:text-3xl font-bold mb-12">
+      Our Services Offerings
+    </h2>
+
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {serviceOfferings.map((service, index) => (
+        <Link
+          key={service.slug}
+          href={`/services/${service.slug}`}
+          className="group relative aspect-square overflow-hidden bg-black"
+        >
+          {/* Image */}
+          <Image
+            src={service.image || "/placeholder.svg"}
+            alt={service.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition duration-500" />
+
+          {/* Content */}
+          <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-2">
+            
+            {/* Number */}
+            <span className="text-xs text-white/70 tracking-wider">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            {/* Title */}
+            <h3 className="text-white text-sm font-semibold leading-snug">
+              {service.title}
+            </h3>
+
+            {/* Read More (Hover pe show hoga) */}
+            <span className="text-xs text-white/80 opacity-0 translate-y-3 
+                             group-hover:opacity-100 group-hover:translate-y-0
+                             transition-all duration-500">
+              Read more →
+            </span>
           </div>
-        </div>
-      </section>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Industries We Serve */}
    <section className="py-20  px-6 lg:px-12">
