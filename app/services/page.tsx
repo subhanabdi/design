@@ -142,8 +142,9 @@ export default function ServicesPage() {
         <Link
           key={service.slug}
           href={`/services/${service.slug}`}
-          className="group relative aspect-square overflow-hidden bg-black"
+          className="group relative aspect-square overflow-hidden bg-black rounded-md shadow-md hover:shadow-xl transition-all duration-500"
         >
+          
           {/* Image */}
           <Image
             src={service.image || "/placeholder.svg"}
@@ -153,11 +154,18 @@ export default function ServicesPage() {
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition duration-500" />
+
+          {/* Left Red Line */}
+          <div className="absolute bottom-0 left-0 h-20 w-1 bg-red-600 
+                          transition-all duration-500 
+                          group-hover:h-full" />
 
           {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-2">
-            
+          <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-2
+                          bg-transparent group-hover:bg-gray-700/80
+                          transition-all duration-500">
+
             {/* Number */}
             <span className="text-xs text-white/70 tracking-wider">
               {String(index + 1).padStart(2, "0")}
@@ -168,18 +176,20 @@ export default function ServicesPage() {
               {service.title}
             </h3>
 
-            {/* Read More (Hover pe show hoga) */}
-            <span className="text-xs text-white/80 opacity-0 translate-y-3 
+            {/* Read More */}
+            <span className="text-xs text-white opacity-0 translate-y-3
                              group-hover:opacity-100 group-hover:translate-y-0
                              transition-all duration-500">
               Read more →
             </span>
+
           </div>
         </Link>
       ))}
     </div>
   </div>
 </section>
+
 
 
       {/* Industries We Serve */}
