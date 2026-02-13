@@ -146,25 +146,36 @@ export default function ServicesPage() {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-20 lg:py-28 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-12">Industries We Serve</h2>
-          {industries.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 ">
-              {row.map((industry) => (
-                 
-                <div
-                  key={industry}
-                  className="p-6 flex items-start"
-                >
-                  <div className="w-[2px] bg-red-500 mt-1" />
-                  <p className="text-sm font-medium text-foreground leading-relaxed">{industry}</p>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
+   <section className="py-20 lg:py-28 px-6 lg:px-12">
+  <div className="max-w-7xl mx-auto">
+
+    <h2 className="text-2xl lg:text-3xl font-bold mb-12">
+      Industries We Serve
+    </h2>
+
+    {industries.map((row, rowIndex) => (
+      <div
+        key={rowIndex}
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8"
+      >
+        {row.map((industry) => (
+          <div
+            key={industry}
+            className="flex items-start gap-4"
+          >
+            {/* RED LINE */}
+            <div className="w-[3px] h-6 bg-red-500 mt-1" />
+
+            <p className="text-sm font-medium leading-relaxed">
+              {industry}
+            </p>
+          </div>
+        ))}
+      </div>
+    ))}
+
+  </div>
+</section>
 
       {/* Engagement Models */}
       <section className="py-20 lg:py-28 px-6 lg:px-12">
