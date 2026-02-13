@@ -85,8 +85,9 @@ export default function IndustriesPage() {
                 key={index}
                 className="border-t border-border p-8 flex flex-col gap-4"
               >
-                <div className="w-full h-1 bg-secondary" />
+               
                 <h3 className="text-base font-bold text-foreground">{industry.title}</h3>
+                 <div className="w-full h-1 bc" />
                 <Link
                   href="#"
                   className="text-xs font-medium text-foreground hover:text-accent transition-colors"
