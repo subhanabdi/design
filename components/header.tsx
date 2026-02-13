@@ -15,12 +15,12 @@ const navLinks = [
 ]
 
 export default function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
-        
+
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
@@ -33,7 +33,7 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Menu */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
@@ -46,25 +46,25 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Right Controls */}
+        {/* Right Icons (Search + Hamburger ALWAYS visible) */}
         <div className="flex items-center gap-4">
           <button
             type="button"
-            className="p-2 text-foreground transition-colors hover:text-accent"
+            className="p-2 text-foreground hover:text-accent transition-colors"
             aria-label="Search"
           >
             <Search className="h-5 w-5" />
           </button>
 
-          {/* Hamburger */}
+          {/* Hamburger — visible on ALL screens */}
           <button
             type="button"
-            className="lg:hidden p-2 text-foreground transition-colors hover:text-accent"
+            className="p-2 text-foreground hover:text-accent transition-colors"
             aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((prev) => !prev)}
           >
-            {mobileOpen ? (
+            {menuOpen ? (
               <X className="h-6 w-6" />
             ) : (
               <Menu className="h-6 w-6" />
@@ -73,25 +73,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Dropdown / Overlay Menu (Desktop + Mobile) */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 bg-background ${
-          mobileOpen ? "max-h-96 border-t border-border" : "max-h-0"
-        }`}
-      >
-        <nav className="flex flex-col gap-4 px-6 py-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-sm text-foreground transition-colors hover:text-accent"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
-  )
-}
+        className={`overflow-hidden transition-all duration-300 bg-background ${
+          menuOpen ? "max-h-96 border-t border-border" : "max-h-0"
