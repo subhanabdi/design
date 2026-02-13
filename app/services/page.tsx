@@ -178,22 +178,43 @@ export default function ServicesPage() {
 </section>
 
       {/* Engagement Models */}
-      <section className="py-20 lg:py-28 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-12">Our Engagement Models</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {engagementModels.map((model) => (
-              <div key={model.title} className="flex flex-col gap-4">
-                <div className="w-16 h-16 flex items-center justify-center bg-secondary">
-                  <EngagementIcon type={model.icon} />
-                </div>
-                <h3 className="text-base font-bold text-foreground">{model.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{model.description}</p>
-              </div>
-            ))}
+     <section className="py-20 lg:py-28 px-6 lg:px-12 bg-gray-100">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-2xl lg:text-3xl font-bold mb-16">
+      Our Engagement Models
+    </h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      {engagementModels.map((model) => (
+        <div
+          key={model.title}
+          className="border border-red-400 p-8 bg-white flex flex-col items-start hover:shadow-lg transition duration-300"
+        >
+          
+          {/* Icon */}
+          <div className="w-12 h-12 mb-6 text-black">
+            <EngagementIcon type={model.icon} />
           </div>
+
+          {/* Red Line */}
+          <div className="w-12 h-[2px] bg-red-500 mb-6" />
+
+          {/* Title */}
+          <h3 className="text-base font-semibold mb-3 leading-snug">
+            {model.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-sm text-gray-600 leading-relaxed">
+            {model.description}
+          </p>
+
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       <ConversationCta />
       <NewsletterSection />
