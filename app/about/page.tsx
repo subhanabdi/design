@@ -18,25 +18,25 @@ const approachSteps = [
     title: "Understand",
     description:
       "Deep market and organizational analysis that reveals true potential.",
-    image: "/images/understand.png",
+    image: "/images/s1.png",
   },
   {
     title: "Strategize",
     description:
       "Designing data-driven, bespoke solutions that align with your goals.",
-    image: "/images/strategize.png",
+    image: "/images/s2.png",
   },
   {
     title: "Collaborate",
     description:
       "Partnering closely with your team to ensure clarity, alignment, and adaptability.",
-    image: "/images/collaborate.png",
+    image: "/images/s3.png",
   },
   {
     title: "Deliver",
     description:
       "Driving measurable results that create sustainable growth and real-world success.",
-    image: "/images/deliver.png",
+    image: "/images/s4.png",
   },
 ];
 
