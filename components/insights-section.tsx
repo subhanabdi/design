@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, Bookmark } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const insights = [
   {
@@ -26,12 +26,17 @@ const insights = [
     date: "18 Oct, 2025",
     title: "Technology as a Growth Catalyst",
   },
+  {
+    image: "/images/insight-1.jpg",
+    date: "10 Oct, 2025",
+    title: "Future of Global Investments",
+  },
 ]
 
 export default function InsightsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const itemsPerPage = 4
-  const maxIndex = insights.length - itemsPerPage
+
+  const maxIndex = insights.length - 1
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1))
@@ -40,6 +45,17 @@ export default function InsightsSection() {
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1))
   }
+
+  // ✅ AUTO SLIDE
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) =>
+        prev >= maxIndex ? 0 : prev + 1
+      )
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [maxIndex])
 
   return (
     <section className="py-24 px-8 lg:px-16 bg-[#f4f4f4]">
