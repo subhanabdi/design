@@ -83,7 +83,7 @@ export default function WhyWeSection() {
         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
           {/* Image 1 */}
-          <div className="relative h-[200px] md:h-[220px] rounded-2xl overflow-hidden">
+          <div className="relative h-[200px] md:h-[220px]  overflow-hidden">
             <Image
               src="/images/location-office.jpg"
               alt="Strategy planning"
@@ -98,7 +98,7 @@ export default function WhyWeSection() {
           ))}
 
           {/* Image 2 */}
-          <div className="relative h-[200px] md:h-[220px] rounded-2xl overflow-hidden">
+          <div className="relative h-[200px] md:h-[220px]  overflow-hidden">
             <Image
               src="/images/about-team.jpg"
               alt="Team collaboration"
