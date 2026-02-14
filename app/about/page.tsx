@@ -100,7 +100,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="w-full h-[1px] bg-gray-300"></div>
+      <div className="py-6 flex justify-center">
+  <div className="w-1/2 h-[1px] bg-gray-300"></div>
+</div>
 
       {/* About Us Section */}
       <section className="py-20 lg:py-28 px-6 lg:px-12">
