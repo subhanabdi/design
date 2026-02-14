@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, Bookmark } from "lucide-react"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 
 const insights = [
   {
@@ -30,22 +30,42 @@ const insights = [
 
 export default function InsightsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [itemsPerView, setItemsPerView] = useState(4)
   const [isTransitioning, setIsTransitioning] = useState(true)
-  const sliderRef = useRef<HTMLDivElement>(null)
 
-  // 🔥 Clone first 4 items for smooth loop
-  const extendedInsights = [...insights, ...insights.slice(0, 4)]
+  // Responsive items count
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(1)
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2)
+      } else {
+        setItemsPerView(4)
+      }
+    }
 
-  // AUTO SLIDE
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  // Clone items for infinite loop
+  const extendedInsights = [
+    ...insights,
+    ...insights.slice(0, itemsPerView),
+  ]
+
+  // Auto Slide
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => prev + 1)
-    }, 3000)
+    }, 4000)
 
     return () => clearInterval(interval)
   }, [])
 
-  // 🔥 Reset without animation when end reached
+  // Reset without animation when end reached
   useEffect(() => {
     if (currentIndex === insights.length) {
       setTimeout(() => {
@@ -68,13 +88,13 @@ export default function InsightsSection() {
   }
 
   return (
-    <section className="py-24 px-8 lg:px-16 bg-[#f4f4f4]">
+    <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-16 bg-[#f4f4f4]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-4 gap-16">
+        <div className="grid lg:grid-cols-4 gap-10 lg:gap-16">
 
           {/* LEFT COLUMN */}
-          <div className="lg:col-span-1">
-            <h2 className="text-5xl font-light leading-tight mb-6">
+          <div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight mb-6">
               Our Latest <br /> Insights
             </h2>
 
@@ -85,7 +105,7 @@ export default function InsightsSection() {
               View all »
             </Link>
 
-            <div className="flex gap-3 mt-10">
+            <div className="flex gap-3 mt-8">
               <button
                 onClick={handlePrev}
                 className="p-3 border border-black/30 rounded-full hover:bg-black/10 transition"
@@ -102,20 +122,29 @@ export default function InsightsSection() {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="lg:col-span-3 overflow-hidden">
+          <div className="lg:col-span-3 overflow-hidden mt-10 lg:mt-0">
             <div
-              ref={sliderRef}
-              className={`flex ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
+              className={`flex ${
+                isTransitioning
+                  ? "transition-transform duration-700 ease-in-out"
+                  : ""
+              }`}
               style={{
-                transform: `translateX(-${currentIndex * 25}%)`,
+                transform: `translateX(-${
+                  currentIndex * (100 / itemsPerView)
+                }%)`,
               }}
             >
               {extendedInsights.map((item, index) => (
                 <div
                   key={index}
-                  className="min-w-[25%] px-4"
+                  style={{ minWidth: `${100 / itemsPerView}%` }}
+                  className="px-3"
                 >
-                  <InsightCard item={item} reverse={index % 2 !== 0} />
+                  <InsightCard
+                    item={item}
+                    reverse={index % 2 !== 0}
+                  />
                 </div>
               ))}
             </div>
@@ -138,7 +167,7 @@ function InsightCard({
     <Link href="#" className="group block">
 
       {!reverse && (
-        <div className="relative aspect-[4/5] overflow-hidden mb-6">
+        <div className="relative aspect-[4/5] overflow-hidden mb-6 rounded-xl">
           <Image
             src={item.image}
             alt={item.title}
@@ -163,7 +192,7 @@ function InsightCard({
       </h3>
 
       {reverse && (
-        <div className="relative aspect-[4/5] overflow-hidden">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
           <Image
             src={item.image}
             alt={item.title}
@@ -178,6 +207,7 @@ function InsightCard({
           </button>
         </div>
       )}
+
     </Link>
   )
 }
