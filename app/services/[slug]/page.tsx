@@ -91,27 +91,27 @@ helpItems: [
   { 
     title: "Market Analysis", 
     description: "Deep insights into market dynamics, trends, and competitive landscape.",
-    image: "/images/t2.png",
+    image: "/images/t1.png",
   },
   { 
     title: "Implementation Support", 
     description: "Hands-on guidance throughout the execution process.",
-    image: "/images/t3.png",
+    image: "/images/t1.png",
   },
   { 
     title: "Performance Tracking", 
     description: "Measurable KPIs and ongoing monitoring for continuous improvement.",
-    image: "/images/t4.png",
+    image: "/images/t1.png",
   },
   { 
     title: "Risk Management", 
     description: "Proactive identification and mitigation of potential challenges.",
-    image: "/images/t5.png",
+    image: "/images/t1.png",
   },
   { 
     title: "Stakeholder Alignment", 
     description: "Building consensus and buy-in across your organization.",
-    image: "/images/t6.png",
+    image: "/images/t1.png",
   },
 ],
 
