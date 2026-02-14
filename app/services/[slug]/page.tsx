@@ -117,7 +117,7 @@ export default async function ServiceDetailPage({
       <PageHero title={service.title} image="/images/service-detail-hero.jpg" />
 
       {/* Intro */}
-      <section className="fedpx-6 lg:px-12">
+      <section className="px-6 lg:px-12  fed">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-xl lg:text-2xl font-bold text-foreground mb-6 leading-relaxed">
             {service.subtitle}
@@ -129,7 +129,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* How We Can Help */}
-      <section className="fedpx-6 lg:px-12">
+      <section className="px-6 lg:px-12  fed">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-xl lg:text-2xl font-bold text-foreground mb-12">How we can help</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -145,7 +145,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Results That Matter */}
-      <section className="relative fed">
+      <section className="relative ">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="bg-muted px-6 lg:px-12 py-16 flex flex-col justify-center">
             <p className="text-xs text-accent font-medium mb-4 flex items-center gap-2">
@@ -167,7 +167,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* Long Description */}
-      <section className="fed px-6 lg:px-12">
+      <section className=" px-6 lg:px-12  fed">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm text-muted-foreground leading-relaxed">
             {service.longDescription}
@@ -176,7 +176,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* FAQs */}
-      <section className="fed px-6 lg:px-12">
+      <section className=" px-6 lg:px-12  fed">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl lg:text-2xl font-bold text-foreground mb-2">FAQs</h2>
           <p className="text-sm text-muted-foreground mb-8">Get Clarity on Your Expansion Journey</p>
