@@ -100,8 +100,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-red-600 py-16 lg:py-24 px-6 lg:px-12 border-t border-gray-300">
-      </section>
+      <div className="w-full h-[1px] bg-gray-300"></div>
 
       {/* About Us Section */}
       <section className="py-20 lg:py-28 px-6 lg:px-12">
