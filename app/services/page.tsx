@@ -130,6 +130,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
+            <div className="py-6 flex justify-center">
+  <div className="w-1/2 h-[1px] bg-gray-300"></div>
+</div>
+
       {/* Service Offerings Grid */}
 <section className="py-20 px-6 lg:px-12">
   <div className="max-w-7xl mx-auto">
@@ -191,6 +195,11 @@ export default function ServicesPage() {
 </section>
 
 
+      <div className="py-6 flex justify-center">
+  <div className="w-1/2 h-[1px] bg-gray-300"></div>
+</div>
+
+
 
       {/* Industries We Serve */}
    <section className="py-20  px-6 lg:px-12">
@@ -223,6 +232,11 @@ export default function ServicesPage() {
 
   </div>
 </section>
+
+
+      <div className="py-6 flex justify-center">
+  <div className="w-1/2 h-[1px] bg-gray-300"></div>
+</div>
 
       {/* Engagement Models */}
  <section className="py-20 lg:py-28 px-6 lg:px-12 bg-gray-100">
@@ -263,6 +277,10 @@ export default function ServicesPage() {
   </div>
 </section>
 
+
+      <div className="py-6 flex justify-center">
+  <div className="w-1/2 h-[1px] bg-gray-300"></div>
+</div>
 
       <ConversationCta />
       <NewsletterSection />
