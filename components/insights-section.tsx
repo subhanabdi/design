@@ -192,7 +192,7 @@ function InsightCard({
       </h3>
 
       {reverse && (
-        <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
+        <div className="relative aspect-[4/5] overflow-hidden ">
           <Image
             src={item.image}
             alt={item.title}
