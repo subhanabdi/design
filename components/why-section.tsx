@@ -83,6 +83,10 @@ export default function WhyWeSection() {
         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
           {/* ROW 1 */}
+          {textCards.slice(0, 3).map((card, index) => (
+            <HoverCard key={index} title={card.title} desc={card.desc} />
+          ))}
+
           <div className="relative h-[200px] md:h-[220px] overflow-hidden">
             <Image
               src="/images/location-office.jpg"
@@ -92,19 +96,7 @@ export default function WhyWeSection() {
             />
           </div>
 
-          {textCards.slice(0, 3).map((card, index) => (
-            <HoverCard key={index} title={card.title} desc={card.desc} />
-          ))}
-
           {/* ROW 2 */}
-          {textCards.slice(3, 6).map((card, index) => (
-            <HoverCard
-              key={index + 3}
-              title={card.title}
-              desc={card.desc}
-            />
-          ))}
-
           <div className="relative h-[200px] md:h-[220px] overflow-hidden">
             <Image
               src="/images/about-team.jpg"
@@ -113,6 +105,14 @@ export default function WhyWeSection() {
               className="object-cover"
             />
           </div>
+
+          {textCards.slice(3, 6).map((card, index) => (
+            <HoverCard
+              key={index + 3}
+              title={card.title}
+              desc={card.desc}
+            />
+          ))}
 
         </div>
       </div>
