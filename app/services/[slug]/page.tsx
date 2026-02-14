@@ -82,14 +82,39 @@ const defaultService = {
   subtitle: "Strategic consulting services tailored to your business needs.",
   description:
     "At Bety Global, we provide comprehensive consulting services designed to help businesses navigate complex challenges and achieve measurable results.",
-  helpItems: [
-    { title: "Strategic Assessment", description: "Comprehensive evaluation of your current position and opportunities." },
-    { title: "Market Analysis", description: "Deep insights into market dynamics, trends, and competitive landscape." },
-    { title: "Implementation Support", description: "Hands-on guidance throughout the execution process." },
-    { title: "Performance Tracking", description: "Measurable KPIs and ongoing monitoring for continuous improvement." },
-    { title: "Risk Management", description: "Proactive identification and mitigation of potential challenges." },
-    { title: "Stakeholder Alignment", description: "Building consensus and buy-in across your organization." },
-  ],
+helpItems: [
+  { 
+    title: "Strategic Assessment", 
+    description: "Comprehensive evaluation of your current position and opportunities.",
+    image: "/images/t1.png",
+  },
+  { 
+    title: "Market Analysis", 
+    description: "Deep insights into market dynamics, trends, and competitive landscape.",
+    image: "/images/t2.png",
+  },
+  { 
+    title: "Implementation Support", 
+    description: "Hands-on guidance throughout the execution process.",
+    image: "/images/t3.png",
+  },
+  { 
+    title: "Performance Tracking", 
+    description: "Measurable KPIs and ongoing monitoring for continuous improvement.",
+    image: "/images/t4.png",
+  },
+  { 
+    title: "Risk Management", 
+    description: "Proactive identification and mitigation of potential challenges.",
+    image: "/images/t5.png",
+  },
+  { 
+    title: "Stakeholder Alignment", 
+    description: "Building consensus and buy-in across your organization.",
+    image: "/images/t6.png",
+  },
+],
+
   result: {
     title: "Proven Results",
     subtitle: "Delivering measurable impact for clients worldwide.",
