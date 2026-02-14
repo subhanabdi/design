@@ -38,17 +38,12 @@ const textCards = [
 ]
 
 /* ---------- Hover Text Card ---------- */
-type HoverCardProps = {
-  title: string
-  desc: string
-}
-
-function HoverCard({ title, desc }: HoverCardProps) {
+function HoverCard({ title, desc }: { title: string; desc: string }) {
   const [hovered, setHovered] = useState(false)
 
   return (
     <div
-      className={`border border-neutral-400 rounded-2xl p-8 min-h-[200px] flex flex-col justify-end transition-all duration-300 ${
+      className={`border border-neutral-400 rounded-2xl p-6 md:p-8 min-h-[180px] md:min-h-[220px] flex flex-col justify-end transition-all duration-300 ${
         hovered ? "bg-[#A8A6A6]" : "bg-transparent"
       }`}
       onMouseEnter={() => setHovered(true)}
@@ -76,21 +71,19 @@ function HoverCard({ title, desc }: HoverCardProps) {
 /* ---------- Section ---------- */
 export default function WhyWeSection() {
   return (
-    <section className="bg-[#efe9e2] px-6 lg:px-12 py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 gap-x-4 gap-y-14">
+    <section className="bg-[#efe9e2] px-4 sm:px-6 lg:px-12 py-16 lg:py-28">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 gap-10">
 
         {/* LEFT TITLE */}
-        <div className="lg:col-span-1">
+        <div>
           <h2 className="text-2xl lg:text-3xl font-medium">Why We?</h2>
         </div>
 
         {/* RIGHT CONTENT GRID */}
-        <div
-          className="lg:col-span-3 grid grid-cols-4 gap-x-4 gap-y-14"
-          style={{ gridTemplateColumns: "repeat(4, 2fr)" }}
-        >
-          {/* Image Card 1 — Start of first row */}
-          <div className="relative h-[220px] overflow-hidden col-start-1">
+        <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+          {/* Image 1 */}
+          <div className="relative h-[200px] md:h-[220px] rounded-2xl overflow-hidden">
             <Image
               src="/images/location-office.jpg"
               alt="Strategy planning"
@@ -104,8 +97,8 @@ export default function WhyWeSection() {
             <HoverCard key={index} title={card.title} desc={card.desc} />
           ))}
 
-          {/* Image Card 2 — End of first row */}
-          <div className="relative h-[220px] overflow-hidden col-end-5">
+          {/* Image 2 */}
+          <div className="relative h-[200px] md:h-[220px] rounded-2xl overflow-hidden">
             <Image
               src="/images/about-team.jpg"
               alt="Team collaboration"
@@ -113,6 +106,7 @@ export default function WhyWeSection() {
               className="object-cover"
             />
           </div>
+
         </div>
       </div>
     </section>
