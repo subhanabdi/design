@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, Bookmark } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 const insights = [
   {
@@ -26,41 +26,50 @@ const insights = [
     date: "18 Oct, 2025",
     title: "Technology as a Growth Catalyst",
   },
-  {
-    image: "/images/insight-1.jpg",
-    date: "10 Oct, 2025",
-    title: "Future of Global Investments",
-  },
 ]
 
 export default function InsightsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(true)
+  const sliderRef = useRef<HTMLDivElement>(null)
 
-  const maxIndex = insights.length - 1
+  // 🔥 Clone first 4 items for smooth loop
+  const extendedInsights = [...insights, ...insights.slice(0, 4)]
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1))
-  }
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1))
-  }
-
-  // ✅ AUTO SLIDE
+  // AUTO SLIDE
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) =>
-        prev >= maxIndex ? 0 : prev + 1
-      )
+      setCurrentIndex((prev) => prev + 1)
     }, 3000)
 
     return () => clearInterval(interval)
-  }, [maxIndex])
+  }, [])
+
+  // 🔥 Reset without animation when end reached
+  useEffect(() => {
+    if (currentIndex === insights.length) {
+      setTimeout(() => {
+        setIsTransitioning(false)
+        setCurrentIndex(0)
+      }, 700)
+    } else {
+      setIsTransitioning(true)
+    }
+  }, [currentIndex])
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => prev + 1)
+  }
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? insights.length - 1 : prev - 1
+    )
+  }
 
   return (
     <section className="py-24 px-8 lg:px-16 bg-[#f4f4f4]">
       <div className="max-w-7xl mx-auto">
-
         <div className="grid lg:grid-cols-4 gap-16">
 
           {/* LEFT COLUMN */}
@@ -76,7 +85,6 @@ export default function InsightsSection() {
               View all »
             </Link>
 
-            {/* NAV BUTTONS */}
             <div className="flex gap-3 mt-10">
               <button
                 onClick={handlePrev}
@@ -93,15 +101,16 @@ export default function InsightsSection() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN - CAROUSEL GRID */}
+          {/* RIGHT COLUMN */}
           <div className="lg:col-span-3 overflow-hidden">
             <div
-              className="flex transition-transform duration-700 ease-in-out"
+              ref={sliderRef}
+              className={`flex ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
               style={{
                 transform: `translateX(-${currentIndex * 25}%)`,
               }}
             >
-              {insights.map((item, index) => (
+              {extendedInsights.map((item, index) => (
                 <div
                   key={index}
                   className="min-w-[25%] px-4"
@@ -128,7 +137,6 @@ function InsightCard({
   return (
     <Link href="#" className="group block">
 
-      {/* IMAGE FIRST */}
       {!reverse && (
         <div className="relative aspect-[4/5] overflow-hidden mb-6">
           <Image
@@ -137,7 +145,6 @@ function InsightCard({
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-
           <button
             onClick={(e) => e.preventDefault()}
             className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:scale-110 transition"
@@ -155,7 +162,6 @@ function InsightCard({
         {item.title}
       </h3>
 
-      {/* IMAGE LAST */}
       {reverse && (
         <div className="relative aspect-[4/5] overflow-hidden">
           <Image
@@ -164,7 +170,6 @@ function InsightCard({
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-
           <button
             onClick={(e) => e.preventDefault()}
             className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:scale-110 transition"
@@ -173,7 +178,6 @@ function InsightCard({
           </button>
         </div>
       )}
-
     </Link>
   )
 }
