@@ -105,7 +105,7 @@ export default function AboutPage() {
 </div>
 
       {/* About Us Section */}
-      <section className="py-20 lg:py-28 px-6 lg:px-12">
+      <section className="py-20  px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="mb-2">
             <h2 className="text-2xl lg:text-3xl font-bold text-foreground">About Us</h2>
@@ -144,6 +144,12 @@ export default function AboutPage() {
         </div>
       </section>
 
+
+
+            <div className="py-6 flex justify-center">
+  <div className="w-1/2 h-[1px] bg-gray-300"></div>
+</div>
+
       {/* Video Section */}
       <section className="relative h-[50vh] min-h-[320px] flex items-center justify-center">
         <Image
@@ -161,6 +167,12 @@ export default function AboutPage() {
           <Play className="w-8 h-8 ml-1" fill="currentColor" />
         </button>
       </section>
+
+
+
+            <div className="py-6 flex justify-center">
+  <div className="w-1/2 h-[1px] bg-gray-300"></div>
+</div>
 
       {/* Our Approach */}
 <section className="py-20 lg:py-28 px-6 lg:px-12 bg-[#f3f3f3]">
@@ -217,6 +229,12 @@ export default function AboutPage() {
     </div>
   </div>
 </section>
+
+
+
+      <div className="py-6 flex justify-center">
+  <div className="w-1/2 h-[1px] bg-gray-300"></div>
+</div>
 
 
       {/* Team Banner */}
