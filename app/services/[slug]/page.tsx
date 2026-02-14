@@ -16,7 +16,7 @@ const servicesData: Record<string, {
   title: string
   subtitle: string
   description: string
-  helpItems: { title: string; description: string }[]
+  helpItems: { title: string; description: string  ; image: string;  }[]
   result: { title: string; subtitle: string }
   longDescription: string
   faqs: { question: string; answer: string }[]
@@ -26,14 +26,41 @@ const servicesData: Record<string, {
     subtitle: "Unlock new opportunities across Europe, the Middle East & North Africa with strategic, data-driven expansion support.",
     description:
       "At Bety Global, we guide businesses through every stage of entering and scaling across EMENA markets. Our team blends regional expertise, deep industry knowledge, and on-ground insights to ensure your expansion is seamless, compliant, and positioned for long-term success.",
+    
+
     helpItems: [
-      { title: "End-to-End Market Entry Support", description: "Complete guidance from exploration to launch." },
-      { title: "Market Intelligence & Opportunity Assessment", description: "Clear insights on demand, trends, and market potential." },
-      { title: "Sector & Competitive Landscape Analysis", description: "Identify top sectors and understand key competitors." },
-      { title: "Partner & Stakeholder Engagement", description: "Build connections with trusted regional partners." },
-      { title: "Go-To-Market Strategy Development", description: "Tailored entry, pricing, and channel strategies." },
-      { title: "Regulatory & Compliance Navigation", description: "Smooth support through regional rules and licensing." },
-    ],
+  {
+    title: "End-to-End Market Entry Support",
+    description: "Complete guidance from exploration to launch.",
+    image: "/images/t1.png",
+  },
+  {
+    title: "Market Intelligence & Opportunity Assessment",
+    description: "Clear insights on demand, trends, and market potential.",
+    image: "/images/t1.png",
+  },
+  {
+    title: "Sector & Competitive Landscape Analysis",
+    description: "Identify top sectors and understand key competitors.",
+    image: "/images/t1.png",
+  },
+  {
+    title: "Partner & Stakeholder Engagement",
+    description: "Build connections with trusted regional partners.",
+    image: "/images/t1.png",
+  },
+  {
+    title: "Go-To-Market Strategy Development",
+    description: "Tailored entry, pricing, and channel strategies.",
+    image: "/images/t1.png",
+  },
+  {
+    title: "Regulatory & Compliance Navigation",
+    description: "Smooth support through regional rules and licensing.",
+    image: "/images/t1.png",
+  },
+],
+  
     result: {
       title: "Market Launches",
       subtitle: "Took companies from zero to full EMENA presence.",
@@ -129,20 +156,45 @@ export default async function ServiceDetailPage({
       </section>
 
       {/* How We Can Help */}
-      <section className="px-6 lg:px-12  fed">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl lg:text-2xl font-bold text-foreground mb-12">How we can help</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {service.helpItems.map((item) => (
-              <div key={item.title} className="flex flex-col gap-3">
-                <HelpIcon />
-                <h3 className="text-base font-bold text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-              </div>
-            ))}
+      
+<section className="py-20 px-6 lg:px-12">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-xl lg:text-2xl font-bold text-foreground mb-12">
+      How we can help
+    </h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      {service.helpItems.map((item) => (
+        <div
+          key={item.title}
+          className="flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1"
+        >
+          {/* Image */}
+          <div className="w-12 h-12">
+            <Image
+              src={item.image}
+              alt={item.title}
+              width={48}
+              height={48}
+              className="object-contain"
+            />
           </div>
+
+          {/* Title */}
+          <h3 className="text-base font-semibold text-foreground">
+            {item.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            {item.description}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Results That Matter */}
       <section className="relative ">
