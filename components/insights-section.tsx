@@ -167,7 +167,7 @@ function InsightCard({
     <Link href="#" className="group block">
 
       {!reverse && (
-        <div className="relative aspect-[4/5] overflow-hidden mb-6 rounded-xl">
+        <div className="relative aspect-[4/5] overflow-hidden mb-6 ">
           <Image
             src={item.image}
             alt={item.title}
