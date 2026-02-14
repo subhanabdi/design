@@ -82,8 +82,8 @@ export default function WhyWeSection() {
         {/* RIGHT CONTENT GRID */}
         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
-          {/* Image 1 */}
-          <div className="relative h-[200px] md:h-[220px]  overflow-hidden">
+          {/* ROW 1 */}
+          <div className="relative h-[200px] md:h-[220px] overflow-hidden">
             <Image
               src="/images/location-office.jpg"
               alt="Strategy planning"
@@ -92,13 +92,20 @@ export default function WhyWeSection() {
             />
           </div>
 
-          {/* Text Cards */}
-          {textCards.map((card, index) => (
+          {textCards.slice(0, 3).map((card, index) => (
             <HoverCard key={index} title={card.title} desc={card.desc} />
           ))}
 
-          {/* Image 2 */}
-          <div className="relative h-[200px] md:h-[220px]  overflow-hidden">
+          {/* ROW 2 */}
+          {textCards.slice(3, 6).map((card, index) => (
+            <HoverCard
+              key={index + 3}
+              title={card.title}
+              desc={card.desc}
+            />
+          ))}
+
+          <div className="relative h-[200px] md:h-[220px] overflow-hidden">
             <Image
               src="/images/about-team.jpg"
               alt="Team collaboration"
